@@ -1,0 +1,4 @@
+/node_modules
+.env
+.env.backup
+/AdminLTE-3.0.5
