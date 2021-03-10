@@ -25,7 +25,7 @@
                 <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
                 <li class="nav-item has-treeview menu-open">
-                    <a href="#" class="nav-link @if(Route::currentRouteName () == 'text-message') active @endif">
+                    <a href="{{ url('text-message') }}" class="nav-link @if(Route::currentRouteName () == 'text-message') active @endif">
                         <i class="nav-icon fa fa-indent"></i>
                         <p>
                             Text Message
@@ -33,9 +33,9 @@
                         </p>
                     </a>
                 </li>
-
+{{-- {{ Route('video-message') }} --}}
                 <li class="nav-item has-treeview menu-open">
-                    <a href="#" class="nav-link @if(Route::currentRouteName () == 'video-message') active @endif ">
+                    <a href="" class="nav-link @if(Route::currentRouteName () == 'video-message') active @endif ">
                         <i class="nav-icon fas fa-video"></i>
                         <p>
                             Video Message

@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\TextMessageController;
+use App\Mail\TextMail;
+use App\Models\TextMessage;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,9 +20,19 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('auth.login');
 });
+Route::middleware('auth')->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard', [
+            'messages' => TextMessage::count(),
+        ]);
+    })->name('dashboard');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+    // text message routes
+    Route::get('text-message', [TextMessageController::class, 'index']);
+    Route::post('text-message', [TextMessageController::class, 'store']);
+    Route::get('update-text-message/{id}', [TextMessageController::class, 'edit']);
+    Route::post('update-text-message/{id}', [TextMessageController::class, 'update']);
+    Route::get('remove-text-message/{id}', [TextMessageController::class, 'destroy']);
+});
 
 require __DIR__.'/auth.php';
