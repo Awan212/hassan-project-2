@@ -42,7 +42,7 @@
                     </div>
                 </div>
                 <div class="card-body" style="height: 400px;">
-                    <video v-bind:src="base_url+'storage/'+video.body" controls width="100%" height="100%"></video>
+                    <video v-bind:src="base_url+video.body" controls width="100%" height="100%"></video>
                 </div>
             </div>
         </div>
@@ -67,7 +67,6 @@ export default {
     methods: {
         onvideoUpload(event){
             this.file = event.target.files[0];
-            console.log(event);
         },
         saveVideo(e){
             this.message = [];

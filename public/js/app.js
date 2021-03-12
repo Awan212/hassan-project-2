@@ -2022,7 +2022,6 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     onvideoUpload: function onvideoUpload(event) {
       this.file = event.target.files[0];
-      console.log(event);
     },
     saveVideo: function saveVideo(e) {
       var _this = this;
@@ -20123,7 +20122,7 @@ var render = function() {
                       [
                         _c("video", {
                           attrs: {
-                            src: _vm.base_url + "storage/" + video.body,
+                            src: _vm.base_url + video.body,
                             controls: "",
                             width: "100%",
                             height: "100%"

@@ -52,9 +52,11 @@ class VideoMessageController extends Controller
         else
         {
 
-            $file = $request->file('video')->store('/video');
+            $file = $request->file('video');
+            $file_new = time().$file->getClientOriginalName();
+            $file->move('video/',$file_new);
             $data = new VideoMessage();
-            $data->body = $file;
+            $data->body = 'video/'.$file_new;
             $data->save();
             VideoMessage::where('id', '!=', $data->id)->update(['status'=> 0]);
             $data = [
