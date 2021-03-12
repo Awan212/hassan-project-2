@@ -43,5 +43,7 @@ Route::middleware('auth')->group(function () {
         ]);
     });
 });
-
+Route::get('/foo', function () {
+Artisan::call('storage:link');
+});
 require __DIR__.'/auth.php';
