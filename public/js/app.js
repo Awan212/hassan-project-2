@@ -2016,7 +2016,8 @@ __webpack_require__.r(__webpack_exports__);
       "class": null,
       videos: [],
       hasError: false,
-      hasSuccess: false
+      hasSuccess: false,
+      btnText: 'save'
     };
   },
   methods: {
@@ -2026,6 +2027,7 @@ __webpack_require__.r(__webpack_exports__);
     saveVideo: function saveVideo(e) {
       var _this = this;
 
+      this.btnText = 'Uploading';
       this.message = [];
       this.hasSuccess = false;
       this.hasError = false;
@@ -2037,6 +2039,7 @@ __webpack_require__.r(__webpack_exports__);
           _this.hasSuccess = true;
           _this.message = resp.data.message;
           _this["class"] = resp.data["class"];
+          _this.btnText = 'Uploaded';
           axios.get('/show-video-message').then(function (resp) {
             _this.videos = [];
             _this.videos = resp.data;
@@ -2045,6 +2048,7 @@ __webpack_require__.r(__webpack_exports__);
           _this.hasError = true;
           _this.message = resp.data.message;
           _this["class"] = resp.data["class"];
+          _this.btnText = 'Try again';
         }
       });
     },
@@ -20055,7 +20059,13 @@ var render = function() {
               })
             ]),
             _vm._v(" "),
-            _vm._m(1)
+            _c("div", { staticClass: "card-footer" }, [
+              _c(
+                "button",
+                { staticClass: "btn btn sm btn-success float-right" },
+                [_vm._v(_vm._s(_vm.btnText))]
+              )
+            ])
           ])
         ])
       ])
@@ -20147,16 +20157,6 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "card-header" }, [
       _c("h3", [_vm._v("Video Message")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card-footer" }, [
-      _c("button", { staticClass: "btn btn sm btn-success float-right" }, [
-        _vm._v("Save")
-      ])
     ])
   }
 ]

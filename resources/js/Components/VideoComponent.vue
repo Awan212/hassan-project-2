@@ -18,7 +18,7 @@
                    <input type="file" @change="onvideoUpload" required class="form-control" accept="video/*">
                </div>
                <div class="card-footer">
-                   <button class="btn btn sm btn-success float-right">Save</button>
+                   <button class="btn btn sm btn-success float-right">{{ btnText }}</button>
                </div>
            </form>
        </div>
@@ -62,6 +62,7 @@ export default {
             videos: [],
             hasError: false,
             hasSuccess:false,
+            btnText: 'save',
         }
     },
     methods: {
@@ -69,6 +70,7 @@ export default {
             this.file = event.target.files[0];
         },
         saveVideo(e){
+            this.btnText = 'Uploading';
             this.message = [];
             this.hasSuccess = false;
             this.hasError = false;
@@ -81,6 +83,7 @@ export default {
                     this.hasSuccess = true;
                     this.message = resp.data.message;
                     this.class = resp.data.class;
+                    this.btnText = 'Uploaded';
                     axios.get('/show-video-message')
                     .then((resp) => {
                         this.videos = [];
@@ -91,6 +94,7 @@ export default {
                     this.hasError = true;
                     this.message = resp.data.message;
                     this.class = resp.data.class;
+                    this.btnText = 'Try again';
                 }
             })
         },
