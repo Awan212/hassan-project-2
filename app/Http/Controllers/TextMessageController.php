@@ -133,6 +133,21 @@ class TextMessageController extends Controller
     {
         $textMessage = TextMessage::find($id);
         $textMessage->delete();
-        return back()->with('message', 'Your text message removed successfully.');
+        if($textMessage->status == 1)
+        {
+            try {
+                $message = TextMessage::latest()->first();
+                $message->status = 1;
+                $message->save();
+                return back()->with('message', 'Your text message removed successfully.');
+            } catch (\Exception $ex) {
+                return back()->with('message', 'Your text message removed successfully.');
+            }
+        }
+        else
+        {
+            return back()->with('message', 'Your text message removed successfully.');
+        }
+
     }
 }

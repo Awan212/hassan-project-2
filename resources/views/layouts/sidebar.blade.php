@@ -33,9 +33,9 @@
                         </p>
                     </a>
                 </li>
-{{-- {{ Route('video-message') }} --}}
+
                 <li class="nav-item has-treeview menu-open">
-                    <a href="" class="nav-link @if(Route::currentRouteName () == 'video-message') active @endif ">
+                    <a href="{{ Route('video-message') }}" class="nav-link @if(Route::currentRouteName () == 'video-message') active @endif ">
                         <i class="nav-icon fas fa-video"></i>
                         <p>
                             Video Message

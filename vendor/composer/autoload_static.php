@@ -539,6 +539,7 @@ class ComposerStaticInit1c476d0bab4c5ff8c34ce9bf0ef56389
         'App\\Mail\\TextMail' => __DIR__ . '/../..' . '/app/Mail/TextMail.php',
         'App\\Models\\TextMessage' => __DIR__ . '/../..' . '/app/Models/TextMessage.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
+        'App\\Models\\VideoMessage' => __DIR__ . '/../..' . '/app/Models/VideoMessage.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',

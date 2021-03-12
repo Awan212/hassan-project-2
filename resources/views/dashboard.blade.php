@@ -64,7 +64,7 @@
                 <!-- small box -->
                 <div class="small-box bg-warning">
                     <div class="inner">
-                        <h3>44</h3>
+                        <h3>{{ $videoMessage }}</h3>
 
                         <p>Video Messages</p>
                     </div>
@@ -90,12 +90,21 @@
             <!-- ./col -->
         </div>
         <!-- /.row -->
+        <div class="row">
+            <div class="col-md-6">
+                <reciver-email></reciver-email>
+                <reciver-phone></reciver-phone>
+            </div>
+            <div class="col-md-6">
+                {{-- <video-page/> --}}
+            </div>
+        </div>
     </div><!-- /.container-fluid -->
 </section>
 @endsection
 
 @section('scripts')
-
+<script src="{{ mix('js/app.js') }}"></script>
 <!-- jQuery -->
 <script src="{{ asset('plugins/jquery/jquery.min.js') }}"></script>
 <!-- jQuery UI 1.11.4 -->

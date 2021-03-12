@@ -32,6 +32,7 @@ return array(
     'App\\Mail\\TextMail' => $baseDir . '/app/Mail/TextMail.php',
     'App\\Models\\TextMessage' => $baseDir . '/app/Models/TextMessage.php',
     'App\\Models\\User' => $baseDir . '/app/Models/User.php',
+    'App\\Models\\VideoMessage' => $baseDir . '/app/Models/VideoMessage.php',
     'App\\Providers\\AppServiceProvider' => $baseDir . '/app/Providers/AppServiceProvider.php',
     'App\\Providers\\AuthServiceProvider' => $baseDir . '/app/Providers/AuthServiceProvider.php',
     'App\\Providers\\BroadcastServiceProvider' => $baseDir . '/app/Providers/BroadcastServiceProvider.php',

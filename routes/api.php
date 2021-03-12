@@ -9,4 +9,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 
-Route::get('/send-text-mail', [TextMailController::class, 'send_mail']);
+Route::get('/send-text-mail', [TextMailController::class, 'text_mail']);
+Route::get('/send-video-mail', [TextMailController::class, 'video_mail']);
+Route::get('/send_mail', [TextMailController::class, 'send_mail']);
