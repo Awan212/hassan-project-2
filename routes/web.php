@@ -1,4 +1,6 @@
 <?php
+
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\VideoMessageController;
 use App\Http\Controllers\TextMessageController;
 use App\Models\TextMessage;
@@ -35,6 +37,11 @@ Route::middleware('auth')->group(function () {
     Route::get('/reciver-email', function(){
         return response()->json(Auth::user()->reciver_email);
     });
+    Route::get('/reciver-tel', function(){
+        return response()->json(Auth::user()->tel_no);
+    });
+
+
     Route::post('/change-reciver-email', function(Request $request){
         User::where('id', Auth::user()->id)->update(['reciver_email'=> $request->email]);
         return response()->json([
@@ -42,8 +49,15 @@ Route::middleware('auth')->group(function () {
             'message'  => 'Reciver email changed successfully'
         ]);
     });
-});
-Route::get('/foo', function () {
-Artisan::call('storage:link');
+
+    Route::post('/change-reciver-tel', function(Request $request){
+        User::where('id', Auth::user()->id)->update(['tel_no'=> $request->tel]);
+        return response()->json([
+            'response' => true,
+            'message'  => 'Reciver Tel No changed successfully'
+        ]);
+    });
+
+    Route::post('/change-password', [HomeController::class, 'change_password']);
 });
 require __DIR__.'/auth.php';

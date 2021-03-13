@@ -30,6 +30,6 @@ class VideoMail extends Mailable
     public function build()
     {
         $video = VideoMessage::where('status', 1)->first();
-        return $this->view('mail.videomail')->attachFromStorage('video/22BYH2J5yr4PLiqsT4IVewebzOHIT25nwRwKgzva.mp4');
+        return $this->view('mail.videomail')->attach($video->body);
     }
 }

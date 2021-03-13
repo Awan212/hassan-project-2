@@ -96,7 +96,7 @@
                 <reciver-phone></reciver-phone>
             </div>
             <div class="col-md-6">
-                {{-- <video-page/> --}}
+                <password-change></password-change>
             </div>
         </div>
     </div><!-- /.container-fluid -->
